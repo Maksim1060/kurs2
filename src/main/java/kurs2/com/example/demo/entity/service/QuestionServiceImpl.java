@@ -3,10 +3,9 @@ package kurs2.com.example.demo.entity.service;
 import kurs2.com.example.demo.entity.Question;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.sql.Array;
+import java.util.*;
+
 @Service
 public class QuestionServiceImpl implements QuestionService {
     private Collection<Question> questions = new HashSet<>();
@@ -39,6 +38,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-
+        int randomIdx = new Random().nextInt(questions.size());
+       return new  ArrayList<>(questions).get(randomIdx);
     }
 }
